@@ -23,7 +23,7 @@
     "build:ts": "tsc",
     "build:tests": "npm run build:ts && npm run build:function && npm run install:debugger",
     "clean": "node scripts/clean.js",
-    "dev": "npm run build:dev && env-cmd -f .env node build",
+    "dev": "npm run build:dev && node build",
     "install:adblock": "node scripts/install-adblock.js",
     "install:debugger": "node scripts/install-debugger.js",
     "install:browsers": "node node_modules/playwright-core/cli.js install chromium firefox webkit msedge",
@@ -33,7 +33,7 @@
     "prettier": "prettier '{src,functions,scripts,bin,external,.github}/**/*.{js,ts,json,yml,yaml,md}' --log-level error --write",
     "test": "npm run build:tests && cross-env DEBUG=quiet mocha",
     "coverage": "npm run build:ts && c8 --reporter=text --reporter=html --reporter=lcov cross-env DEBUG=quiet mocha",
-    "start": "env-cmd -f .env node build"
+    "start": "node build"
   },
   "files": [
     "assets/*",
